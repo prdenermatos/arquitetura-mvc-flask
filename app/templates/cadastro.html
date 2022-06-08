@@ -22,8 +22,8 @@
 
     <nav class="navbar navbar-expand-sm bg-dark">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#">Cadastro</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Consulta</a></li>
+            <li class="nav-item"><a class="nav-link" href="/">Cadastro</a></li>
+            <li class="nav-item"><a class="nav-link" href="/consulta">Consulta</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Relatorios</a></li>
         </ul>
     </nav>
@@ -37,19 +37,22 @@
     </div>
 
 
-    <div>
+    <div style="text-align: center;">
         <main>
             <form action="/cadastramento" method="post">
                 <table>
                     <tr>
-                        <input type="text" name="nome" placeholder="Nome do Paciente">
-                    </tr><br>
+                        <input type="text" name="nome" placeholder="Nome do Paciente" size="50px">
+                    </tr><br><br>
                     <tr>
-                        <input type="text" name="cpf" placeholder="CPF.:">
-                    </tr><br>
+                        <input type="text" name="cpf" placeholder="CPF.:" size="50px">
+                    </tr><br><br>
                     <tr>
-                        <input type="text" name="endereco" placeholder="Endereço">
-                    </tr><br>
+                        <input type="text" name="endereco" placeholder="Endereço" size="50px">
+                    </tr><br><br>
+                    <tr>
+                        <textarea name="relato" cols="30" rows="10" placeholder="Relato Sintomas" aria-setsize="50px"></textarea>
+                    </tr><br><br>
                     <button type="submit"> Cadastrar </button>
 
                 </table>

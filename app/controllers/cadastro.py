@@ -14,7 +14,8 @@ def cadastramento():
     nome_paciente = request.form['nome']
     cpf_paciente = request.form['cpf']
     endereco_paciente =request.form['endereco']
-    novo_paciente = Paciente(nome_paciente, cpf_paciente, endereco_paciente)
+    relato = request.form['relato']
+    novo_paciente = Paciente(nome_paciente, cpf_paciente, endereco_paciente, relato)
     db.session.add(novo_paciente)
     db.session.commit()
     

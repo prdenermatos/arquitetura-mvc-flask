@@ -9,11 +9,13 @@ class Paciente(db.Model):
     nome = db.Column(db.String(20))
     cpf = db.Column(db.String(10))
     endereco = db.Column(db.String(30))
+    relato = db.Column(db.String(100))
 
-    def __init__(self, nome, cpf, endereco):
+    def __init__(self, nome, cpf, endereco, relato):
         self.nome = nome
         self.cpf = cpf
         self.endereco = endereco
+        self.relato = relato
 
     def __repr__(self):
         return '<Paciente %r>' % self.nome    

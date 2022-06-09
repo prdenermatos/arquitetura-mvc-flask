@@ -35,7 +35,8 @@
                     <th>ID</th>
                     <th>Nome</th>
                     <th>CPF</th>
-                    <th>Relato</th>
+                    <th>Endereço</th>
+                    
                 
                 </tr>
                 
@@ -44,9 +45,9 @@
                     <td>{{paciente.id}}</td>
                     <td>{{paciente.nome}}</td>
                     <td>{{paciente.cpf}}</td>
-                    <td>{{paciente.relato}}</td>
-
-                </tr>
+                    <td>{{paciente.endereco}}</td>
+                </tr></table><br>
+                <textarea  cols="200" rows="10">{{paciente.relato}}</textarea>
                 {% endfor %}
 
 

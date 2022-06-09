@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+
+
+    <title>Deleção</title>
+
+</head>
+
+<body>
+    <center>
+        <h2>Deseja realmente excluir o Paciente: {{paciente.nome}}?</h2>
+
+        <button class="btn"><a href="/consulta">Não</a></button><br>
+        <form action="/apagar" method="post">
+            <input name="id_exclusao" type="hidden" value="{{paciente.id}}">
+            <button type="submit" class="btn"><a href="/apagar">Sim</a></button>
+        </form>
+        
+
+    </center>
+</body>

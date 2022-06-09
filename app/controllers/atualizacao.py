@@ -12,18 +12,25 @@ def atualizacao(id):
 def edicao():
     # Exclusão registro antigo
     id = request.form['id']
-    paciente_exclusao = Paciente.query.filter_by(id=id).first()
-    db.session.delete(paciente_exclusao)
+    #paciente_exclusao = Paciente.query.filter_by(id=id).first()
+    #db.session.delete(paciente_exclusao)
 
-    #inclusão atualizado
+    #Novos dados recebidos
 
     nome = request.form['nome']
     cpf = request.form['cpf']
     endereco = request.form['endereco']
     relato = request.form['relato']
-    paciente_atualizado = Paciente(nome, cpf, endereco, relato)
+    #paciente_atualizado = Paciente(nome, cpf, endereco, relato)
 
-    db.session.add(paciente_atualizado)
+    #Atualização do dict
+    paciente = Paciente.query.filter_by(id=id).first()
+    paciente.nome = nome
+    paciente.cpf = cpf
+    paciente.endereco = endereco
+    paciente.relato = relato
+
+    #db.session.add(paciente_atualizado)
     db.session.commit()
 
     return redirect('/consulta')

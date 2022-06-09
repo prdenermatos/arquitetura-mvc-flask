@@ -53,8 +53,14 @@
                     <td>{{paciente.cpf}}</td>
                     <td>{{paciente.endereco}}</td>
 
+                    <td>
+                        <a href="/atualizacao/{{paciente.id}}" class="btn btn-primary" role="button">Editar</a>
+                        <a href="/delecao/{{paciente.id}}" class="btn btn-danger" role="button">DELETAR</a>
+                    </td>
+
                 </tr>
                 {% endfor %}
+
 
 
         </div>

@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, request
 from app import app
+from app.controllers.inicial import cardapio
 from app.models.tables import Restaurante, Cardapio
 
 
@@ -25,6 +26,7 @@ def consulta_restaurante():
 
 @app.route('/consulta_cardapio', methods=["POST"])
 def consulta_cardapio():
+    print('aqui')
     consulta = '%'+str(request.form.get('consulta_cardapio'))+'%'
     campo = request.form.get('campo_cardapio')
     if campo == 'prato':
@@ -35,4 +37,4 @@ def consulta_cardapio():
         lista_cardapios = Cardapio.query.filter(Cardapio.preco.like(consulta)).all()
     else:
         lista_cardapios = Cardapio.query.all()
-    return render_template('/inicial.html', restaurantes=lista_cardapios)
+    return render_template('/pesquisa_cardapio.html', cardapio=lista_cardapios)

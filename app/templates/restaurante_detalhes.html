@@ -52,10 +52,10 @@
             <ul>
                 <li class="nav-item"><a class="nav-link" href="/inicial">Restaurantes</a></li>
                 <li class="nav-item"><a class="nav-link" href="/cardapio">Cardápios</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Sobre nós</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/prdenermatos/">Sobre nós</a></li>
             </ul>
             <div>
-                <button class="logout-button"><a href="#">Sair</a></button>
+                <button class="logout-button"><a href="/logout">Sair</a></button>
             </div>
         </div>
     </header>
@@ -69,9 +69,8 @@
             </div>
             <center>
                 <div class="banner">
-                    <img src="static/imagens/restaurante/{{restaurante.descricao_foto}}" alt="icone">
+                    <img src="../static/imagens/restaurantes/{{restaurante.descricao_foto}}" alt="banner restaurante">
                 </div>
-                <p>{{tipo.descricao_foto}}</p>
             </center>
             <div class="sub-tilte">
                 <h2>Cardápio Disponível</h2>
@@ -81,7 +80,7 @@
                 <main class="cards">
                     {% for prato in cardapio %}
                     <section class="card">
-                        <img src="static/imagens/cardapio/{{prato.descricao_foto}}" alt="icone">
+                        <img src="../static/imagens/cardapio/{{prato.descricao_foto}}" alt="card cardápio">
                         <h3>{{prato.prato}}</h3>
                         <h4><em>{{prato.restaurante}}</em></h4>
                         <p>{{prato.descricao}}</p>

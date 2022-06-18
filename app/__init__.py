@@ -16,9 +16,10 @@ db = SQLAlchemy(app)
 
 
 from app.controllers import cadastro
-from app.controllers import atualizacao
 from app.controllers import consulta
-from app.controllers import delecao
+from app.controllers import login
+from app.controllers import inicial
+from app.controllers import detalhes
 
 
 

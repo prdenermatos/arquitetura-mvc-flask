@@ -1,22 +1,30 @@
 
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, flash
 from app import app, db
-from app.models.tables import Paciente
+from app.models.tables import Usuario
+from app.models.seguranca import Criptografia
 
 
-@app.route('/')
+
 @app.route('/cadastro')
 def cadastro():
-    return render_template('cadastro.html')
+    return render_template('cadastro_usuario.html')
 
-@app.route('/cadastramento', methods=["POST"])
+@app.route('/cadastramento_usuario', methods=["POST"])
 def cadastramento():
-    nome_paciente = request.form['nome']
-    cpf_paciente = request.form['cpf']
-    endereco_paciente =request.form['endereco']
-    relato = request.form['relato']
-    novo_paciente = Paciente(nome_paciente, cpf_paciente, endereco_paciente, relato)
-    db.session.add(novo_paciente)
+
+    nome = request.form['nome']
+    email = request.form['email']
+    senha = request.form['senha']
+
+    senha_cripto = Criptografia(senha)
+    senha_segura = senha_cripto.criptografar()
+
+    novo_usuario = Usuario(nome, email, senha_segura)
+    db.session.add(novo_usuario)
     db.session.commit()
+
+    flash('Cadastro realizado com sucesso! ')
+
     
-    return redirect('/cadastro')
+    return redirect('/')

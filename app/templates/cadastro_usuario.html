@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/cadastro.css') }}">
+
+
+    <title>Cadastro de Usuário</title>
+
+</head>
+<body>
+    <div class="mensagens">
+    {% with messages = get_flashed_messages() %}					
+        {% if messages %} 					
+            <ul id="messages" class="list-unstyled">					
+            {% for message in messages %}					
+                <li class="alert alert-success">{{ message }}</li>					
+            {% endfor %}					
+            </ul>					
+        {% endif %}					
+    {% endwith %}
+    </div>
+
+<br><br> 
+
+    <div class="conteiner">
+        <div class="form-image">
+            <img src="{{ url_for('static', filename= 'imagens/logo.svg') }}" alt="logo">
+        </div>
+        <div class="form">
+            <form action="/cadastramento_usuario" method="post">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Vem ser feliz!</h1>
+                    </div>
+                    <div class="login-button">
+                        <button><a href="/">Entrar</a></button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" placeholder="Digite seu nome" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" placeholder="Digite seu melhor e-mail" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" placeholder="Crie uma senha" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="confirme-senha">Confirme sua senha</label>
+                        <input type="password" name="confirme-senha" placeholder="Confirme sua senha" required>
+                    </div>
+
+                </div>
+
+                <div class="continue-button">
+                    <button type="submit">Cadastrar</button>
+
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

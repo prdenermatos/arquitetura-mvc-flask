@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/cadastro.css') }}">
+
+
+    <title>Login</title>
+
+</head>
+<body>
+    <div class="mensagens">
+    {% with messages = get_flashed_messages() %}					
+        {% if messages %} 					
+            <ul id="messages" class="list-unstyled">					
+            {% for message in messages %}					
+                <li class="alert alert-success">{{ message }}</li>					
+            {% endfor %}					
+            </ul>					
+        {% endif %}					
+    {% endwith %}
+    </div>
+
+<br><br> 
+
+    <div class="conteiner">
+        <div class="form-image">
+            <img src="{{ url_for('static', filename= 'imagens/folder.png') }}" alt="logo">
+        </div>
+        <div class="form">
+            <form action="/autenticar" method="post">
+                <div class="form-header">
+                    <div class="logo-header">
+                      <img src="{{ url_for('static', filename= 'imagens/icone.jpg') }}" alt="logo">
+                    </div>
+                    <div class="title">
+                        <h1>Guia de Restaurantes</h1>
+                    </div>
+
+                </div>
+                <div class="input-group">
+
+                    <div class="input-box">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" placeholder="E-mail (cadastrado)"  size="17">
+                    </div>
+                    <div class="input-box">
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" placeholder="Digite sua senha!" size="10">
+                    </div>
+                </div>
+
+                <div class="continue-button">
+                    <button type="submit">Entrar</button>
+                </div> <br>
+
+
+
+            </form>
+
+            <div class="cadastrar-button">
+              <button><a href="/cadastro">Cadastrar</a></button>
+
+          </div>  
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

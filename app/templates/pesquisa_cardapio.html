@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/inicial.css') }}">
+
+    
+
+    <title>Pesquisa Cardápios</title>
+
+</head>
+<body>
+    <div class="mensagens">
+    {% with messages = get_flashed_messages() %}					
+        {% if messages %} 					
+            <ul id="messages" class="list-unstyled">					
+            {% for message in messages %}					
+                <li class="alert alert-success">{{ message }}</li>					
+            {% endfor %}					
+            </ul>					
+        {% endif %}					
+    {% endwith %}
+    </div>
+
+<br><br> 
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename= 'imagens/icone.jpg') }}" alt="icone">
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <li class="nav-item"><a class="nav-link" href="/inicial">Restaurantes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/cardapio">Cardápios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/prdenermatos/">Sobre nós</a></li>
+                </ul>
+            </div>
+            <div>
+                <button class="logout-button"><a href="/logout">Sair</a></button>
+            </div>
+
+            <div class="menu-mobile-icon">
+                <button onclick="menuShow()"><img class="icon" src="{{ url_for('static', filename= 'imagens/menu-mobile.svg') }}" alt="menu-mobile"></button>
+            </div>
+        </nav>
+
+        <div class="mobile-menu">
+            <ul>
+                <li class="nav-item"><a class="nav-link" href="/inicial">Restaurantes</a></li>
+                <li class="nav-item"><a class="nav-link" href="/cardapio">Cardápios</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Sobre nós</a></li>
+            </ul>
+            <div>
+                <button class="logout-button"><a href="#">Sair</a></button>
+            </div>
+        </div>
+    </header>
+    <div class="consulta-form">
+        <form action="/consulta_cardapio" method="post">
+            <div>
+                <div>
+                    <input type="text" name="consulta_cardapio" placeholder="O que vai saborear hoje?" size="30px">
+                    <select name="campo_cardapio">
+                        <option value="prato">Cardapio</option>
+                        <option value="restaurante">Restaurante</option>
+                        <option value="preco">Preço</option>                                   
+                    </select>
+                    <button type="submit" class="btn-consultar">Procurar</button>
+                </div>
+                
+            </div>
+        </form><br><hr>
+
+
+    </div>
+    <div class="conteiner">
+        <main class="cards">
+            {% for prato in cardapio %}
+            <section class="card">
+                <img src="static/imagens/cardapio/{{prato.descricao_foto}}" alt="">
+                <h3>{{prato.prato}}</h3>
+                <h4><em>{{prato.restaurante}}</em></h4>
+                <p>{{prato.descricao}}</p>
+                <h5><strong>R${{prato.preco}}</strong></h5><br>
+                <button>Comprar</button><br>
+            </section>
+            {% endfor %}
+
+        </main>
+    </div>
+
+    <script>
+        function menuShow() {
+            let menuMobile = document.querySelector('.mobile-menu');
+            if (menuMobile.classList.contains('open')) {
+                menuMobile.classList.remove('open');
+                document.querySelector('.icon').src = "{{ url_for('static', filename= 'imagens/menu-mobile.svg') }}";
+            } else {
+                menuMobile.classList.add('open');
+                document.querySelector('.icon').src = "{{ url_for('static', filename= 'imagens/close-menu-mobile.svg') }}";
+            }
+        }
+    </script>
+    
+    </body>
+    </html>

@@ -10,6 +10,15 @@
 header {
     background-color: #f52500e1;
     box-shadow: 0px 3px 10px #464646;
+    position: sticky;
+    top: 0;
+
+}
+.name-app {
+    display: none;
+    justify-content: left;
+    align-items: center;
+    color: rgb(218, 221, 16);
 
 }
 
@@ -296,6 +305,9 @@ main.cards {
 /* Set Responisividade */
 
 @media screen and (max-width: 730px) {
+    .name-app {
+        display: flex;
+    }
     .nav-bar {
         padding: 1.5rem 4rem;
     }
